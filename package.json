@@ -1,0 +1,30 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.1",
+  "description": "MongoDB based social network API",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server",
+    "seed": "node utils/seed"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.29.3",
+    "mongoose": "^6.0.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colinbrindle/social-network-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/colinbrindle/social-network-api/issues"
+  },
+  "homepage": "https://github.com/colinbrindle/social-network-api#readme"
+}
