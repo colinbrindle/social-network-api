@@ -1,30 +1,12 @@
 const { ObjectId } = require("mongoose").Types;
 const { User } = require("../models");
 
-/* User APIs
-GET all users
-
-GET a single user by its _id and populated thought and friend data
-
-POST a new user:
-
-// example data
-{
-  "username": "lernantino",
-  "email": "lernantino@gmail.com"
-}
-PUT to update a user by its _id
-
-DELETE to remove user by its _id
-*/
-
 // GET all users
 const getAllUsers = async (req, res) => {
   try {
     const allUsers = await User.find();
     res.status(200).json(allUsers);
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 };
@@ -35,7 +17,38 @@ const addNewUser = async (req, res) => {
     const newUser = await User.create(req.body);
     res.status(200).json(newUser);
   } catch (err) {
-    console.log(err);
+    res.status(400).json(err);
+  }
+};
+
+// GET user by ID
+const userById = async (req, res) => {
+  try {
+    const singleUser = await User.findOne({ _id: req.params.id });
+    res.status(200).json(singleUser);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+};
+
+const updateById = async (req, res) => {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      { _id: req.body.id },
+      { $set: req.body },
+      { runValidators: true, new: true }
+    );
+    res.status(200).json(updatedUser);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+};
+
+const deleteById = async (req, res) => {
+  try {
+    const targetUser = await User.findByIdAndDelete({ _id: req.params.id });
+    res.status(200).json(targetUser);
+  } catch (err) {
     res.status(400).json(err);
   }
 };
@@ -43,4 +56,8 @@ const addNewUser = async (req, res) => {
 module.exports = {
   getAllUsers,
   addNewUser,
+  userById,
+  updateById,
+  updateById,
+  deleteById,
 };
