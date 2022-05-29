@@ -21,7 +21,7 @@ const addNewUser = async (req, res) => {
   }
 };
 
-// GET user by ID
+// GET user by id
 const userById = async (req, res) => {
   try {
     const singleUser = await User.findOne({ _id: req.params.id });
@@ -31,7 +31,8 @@ const userById = async (req, res) => {
   }
 };
 
-const updateById = async (req, res) => {
+// UPDATE / PUT user by id
+const updateUser = async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(
       { _id: req.body.id },
@@ -44,7 +45,8 @@ const updateById = async (req, res) => {
   }
 };
 
-const deleteById = async (req, res) => {
+// DELETE user by id
+const deleteUser = async (req, res) => {
   try {
     const targetUser = await User.findByIdAndDelete({ _id: req.params.id });
     res.status(200).json(targetUser);
@@ -57,7 +59,6 @@ module.exports = {
   getAllUsers,
   addNewUser,
   userById,
-  updateById,
-  updateById,
-  deleteById,
+  updateUser,
+  deleteUser,
 };

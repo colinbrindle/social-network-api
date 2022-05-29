@@ -3,12 +3,12 @@ const {
   getAllUsers,
   addNewUser,
   userById,
-  updateById,
-  deleteById,
+  updateUser,
+  deleteUser,
 } = require("../../controllers/userController");
 
 router.route("/").get(getAllUsers).post(addNewUser);
 
-router.route("/:id").get(userById).put(updateById).delete(deleteById);
+router.route("/:id").get(userById).put(updateUser).delete(deleteUser);
 
 module.exports = router;
