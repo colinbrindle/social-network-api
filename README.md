@@ -7,3 +7,6 @@ This application demonstrates a social network API that allows one to CRUD users
 ## **Video Demonstration**
 
 [YouTube video demonstration](https://www.youtube.com/watch?v=LdJR9QV2e0g) of social network API.
+
+## **Screenshots**
+![Insomnia screenshot](./imgs/site.png)
